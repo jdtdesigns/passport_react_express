@@ -11,10 +11,7 @@ router.post('/register', (req, res) => {
         .then(result => {
             passport.authenticate('local')
             (req, res, function (result) {
-                if ( req.user ) 
-                    res.send({info: req.user, success: 1});
-                else
-                    res.send({info: null, success: 0});
+                res.send({ user: req.user, success: 1 });
             });
         });
 });
@@ -22,10 +19,7 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res) => {
     passport.authenticate('local')
     (req, res, function (result) {
-        if (req.user)
-            res.send({ info: req.user, success: 1 });
-        else
-            res.send({ info: null, success: 0 });
+        res.send({ user: req.user, success: 1 });
     });
 });
 

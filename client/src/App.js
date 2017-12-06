@@ -32,7 +32,7 @@ class App extends Component {
         if ( res.data.success ) {
           this.setState({user: {...res.data.info}, logged_in: true});
         }
-    })
+    }).catch(err => console.log('error: ' + err));
   }
 
   handleChange(e) {
