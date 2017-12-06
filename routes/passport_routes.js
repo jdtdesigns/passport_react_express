@@ -3,14 +3,14 @@ const router = express.Router();
 const User = require('../models/User');
 const passport = require('../modules/passport');
 
-// User.find({}).remove().then(users => console.log(users));
+User.find({}).then(users => console.log(users));
 
 /* GET home page. */
 router.post('/register', (req, res) => {
     User.create(req.body)
         .then(result => {
             passport.authenticate('local')
-            (req, res, function (result) {
+            (req, res, result => {
                 res.send({ user: req.user, success: 1 });
             });
         });
@@ -18,7 +18,7 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
     passport.authenticate('local')
-    (req, res, function (result) {
+    (req, res, result => {
         res.send({ user: req.user, success: 1 });
     });
 });

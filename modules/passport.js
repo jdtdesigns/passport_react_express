@@ -14,6 +14,7 @@ passport.use(new Strategy(
         usernameField: 'email'
     },
     function (email, password, cb) {
+        console.log('fired');
         User.findOne({email: email}, (err, user) => {
             if (err) { return cb(err); }
             if (!user) { return cb(null, false); }

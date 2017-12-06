@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import Fail from './components/Fail';
 import Header from './components/Header';
+import Example from './components/Example';
 
 window.axios = axios;
 
@@ -44,8 +45,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         <Header email={this.state.user.email} logged_in={this.state.logged_in} />
-        {Object.keys(this.state.user).length ? (
+        <Example />
+        {/* {Object.keys(this.state.user).length ? (
           <div>
             <h1>Logged in</h1>
             <p>{this.state.user.email}</p>
@@ -66,7 +69,7 @@ class App extends Component {
                 <button type="submit">Submit</button>
               </form>
            </div>
-        )}
+        )} */}
 
         <Route path="/fail" component={Fail}></Route>
       </div>
