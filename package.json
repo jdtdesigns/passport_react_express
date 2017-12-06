@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"nodemon ./bin/www \" \"cd ./client && npm start\""
+    "start": "concurrently \"nodemon ./bin/www \" \"cd ./client && npm start\"",
+    "serve": "node ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.17.1",

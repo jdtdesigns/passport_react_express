@@ -21,10 +21,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'client/build/static/')));
+app.use(express.static(path.join(__dirname, 'client/build/')));
 
 app.use(session({ 
   secret: 'hqrdm0A70cQANssDeCqLaXhh99tNPRB4', 
+  proxy: true,
   resave: false, 
   saveUninitialized: false 
 }));
@@ -36,7 +37,6 @@ const passport_routes = require('./routes/passport_routes');
 app.use('/auth', passport_routes);
 
 app.get('*', function(req, res) {
-  console.log('fired');
   res.sendFile(path.join(__dirname, 'client/build/index.html'));
 });
 

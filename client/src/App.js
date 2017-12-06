@@ -52,6 +52,7 @@ class App extends Component {
           </div>
         ) : (
            <div>
+              <h3>Register</h3>
               <form className="column" onSubmit={(e) => this.registerUser(1, e)}>
                 <input type="text" value={this.state.email} id="email" onChange={this.handleChange.bind(this)} />
                 <input type="password" value={this.state.password} id="password" onChange={this.handleChange.bind(this)} />
